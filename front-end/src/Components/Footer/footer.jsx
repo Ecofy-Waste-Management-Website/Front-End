@@ -2,13 +2,13 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200 px-16 pt-12">
+    <footer className="bg-white border-t border-gray-200 px-6 md:px-16 pt-12">
 
       {/* Top Section */}
-      <div className="grid grid-cols-4 gap-10 pb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-10">
 
         {/* Brand Column */}
-        <div>
+        <div classname="sm:col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-2xl">🌿</span>
             <span className="text-xl font-bold text-gray-900">Ecofy</span>
@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-200 py-5 flex justify-between items-center text-sm text-gray-500">
+      <div className="border-t border-gray-200 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-500 text-center">
         <p>© 2026 Ecofy Waste Management. All rights reserved.</p>
         <a href="#" className="hover:text-green-600 transition-colors">Privacy Policy</a>
       </div>
