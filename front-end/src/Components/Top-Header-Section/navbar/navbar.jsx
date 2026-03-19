@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('Home');
@@ -10,27 +11,40 @@ const Navbar = () => {
     // CHANGED: Replaced 'relative' with 'absolute top-0 left-0 z-50'
     <div className='absolute top-0 left-0 z-50 flex justify-end md:justify-center w-full py-6 px-6 md:px-0'>
       <nav className="bg-[#096b1e] rounded-full flex items-center justify-center h-[52px] w-[52px] md:w-fit md:px-12 font-['Roboto'] font-medium text-[16px] transition-all duration-300 z-50">
-        
+
         {/* DESKTOP MENU */}
         <div className="hidden md:flex gap-10 whitespace-nowrap">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
-              onClick={() => setActiveLink(item)}
-              className={`transition-colors duration-200 ${
-                activeLink === item 
-                  ? 'text-[#facc15]' 
+            item === 'Contact us' ? (
+              <Link
+                key={item}
+                to="/contact"
+                onClick={() => setActiveLink(item)}
+                className={`transition-colors duration-200 ${activeLink === item
+                  ? 'text-[#facc15]'
                   : 'text-white hover:text-yellow-200'
-              }`}
-            >
-              {item}
-            </a>
+                  }`}
+              >
+                {item}
+              </Link>
+            ) : (
+              <a
+                key={item}
+                href={item === 'Home' ? '/' : `/#${item.toLowerCase().replace(' ', '-')}`}
+                onClick={() => setActiveLink(item)}
+                className={`transition-colors duration-200 ${activeLink === item
+                  ? 'text-[#facc15]'
+                  : 'text-white hover:text-yellow-200'
+                  }`}
+              >
+                {item}
+              </a>
+            )
           ))}
         </div>
 
         {/* MOBILE HAMBURGER BUTTON */}
-        <button 
+        <button
           className="md:hidden text-white hover:text-yellow-200 focus:outline-none flex items-center justify-center w-full h-full"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -50,21 +64,37 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="absolute top-24 right-6 flex flex-col items-center bg-[#096b1e] w-[200px] rounded-2xl py-6 gap-6 md:hidden shadow-xl font-['Roboto'] font-medium text-[16px] z-40">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
-              onClick={() => {
-                setActiveLink(item);
-                setIsMobileMenuOpen(false);
-              }}
-              className={`transition-colors duration-200 ${
-                activeLink === item 
-                  ? 'text-[#facc15]' 
-                  : 'text-white hover:text-yellow-200'
-              }`}
-            >
-              {item}
-            </a>
+            item === 'Contact us' ? (
+              <Link
+                key={item}
+                to="/contact"
+                onClick={() => {
+                  setActiveLink(item);
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`transition-colors duration-200 ${activeLink === item
+                    ? 'text-[#facc15]'
+                    : 'text-white hover:text-yellow-200'
+                  }`}
+              >
+                {item}
+              </Link>
+            ) : (
+              <a
+                key={item}
+                href={item === 'Home' ? '/' : `/#${item.toLowerCase().replace(' ', '-')}`}
+                onClick={() => {
+                  setActiveLink(item);
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`transition-colors duration-200 ${activeLink === item
+                    ? 'text-[#facc15]'
+                    : 'text-white hover:text-yellow-200'
+                  }`}
+              >
+                {item}
+              </a>
+            )
           ))}
         </div>
       )}
