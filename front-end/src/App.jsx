@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream
 import { useState } from "react";
 
 const navLinks = ["Home", "About", "Services", "Contact us", "Blog"];
+=======
+import React from 'react'
+import Hero from './Components/Hero-Section/hero'
+import Navbar from './Components/Top-Header-Section/navbar/navbar'
+import Footer from './Components/Footer/footer'
+>>>>>>> Stashed changes
 
 export default function App() {
   const [active, setActive] = useState("Home");
