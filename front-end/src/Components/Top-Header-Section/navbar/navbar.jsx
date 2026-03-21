@@ -7,7 +7,8 @@ const Navbar = () => {
   const navItems = ['Home', 'About', 'Services', 'Contact us', 'Blog'];
 
   return (
-    <div className='flex justify-end md:justify-center w-full py-6 px-6 md:px-0 relative'>
+    // CHANGED: Replaced 'relative' with 'absolute top-0 left-0 z-50'
+    <div className='absolute top-0 left-0 z-50 flex justify-end md:justify-center w-full py-6 px-6 md:px-0'>
       <nav className="bg-[#096b1e] rounded-full flex items-center justify-center h-[52px] w-[52px] md:w-fit md:px-12 font-['Roboto'] font-medium text-[16px] transition-all duration-300 z-50">
         
         {/* DESKTOP MENU */}
